@@ -1,50 +1,61 @@
 <!DOCTYPE html>
-<html lang = "ru">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content "width=device-width, initial-scale=1.0">
-        <title>Семестровая работа</title>
-    </head>
-    <body>
-        <div id="header">Хедер</div>
-        <div id="menu">
-            <ul>
-                <li><a href = index.html>Главная</a></li>
-                <li><a href = pages/news.html>Новости</a></li>
-                <li><a href = pages/practices.html>Практики</a></li>
-                <li><a href = pages/goods.html>Товары</a></li>
-                <li><a href = pages/contacts.html>Контакты</a></li>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">Хедер</div>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
-
         </div>
-        <div id="content">
-            <p>Инвормация о авторе</p>
-            <img src = "images/Ава.jpg" alt = "Фото автора" width = "200px" height = "250px">
-            <p>Савельев Антон Алекссевич</p>
-            <p>ЭФБО-12-24</p>
-            <p>Обо мне: Тут краткая информация обо мне для быстрого ознакомления с моей личностью и что я представляю из себя</p>
-            <div>Навык 1</div>
-            <div>Навык 2</div>
-            <div>Навык 3</div>
-            <div>Навык 4</div>
-            <div>
-                Опыт работы:
-                <div>
-                    Опыт 1<pr>
-                        Работал продавцом, продавал разный китайский шлак
-                    </pr>
-                </div>
-                <div>
-                    Опыт 2<pr>
-                        Работал в общепите, официантом
-                    </pr>
-                </div>
-                <div>
-                    Опыт 3<pr>
-                        Работал в пвз, выдавал всякий китайский шлак
-                    </pr>
+        
+        <div class="content">
+            <div class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="images/Ава.jpg" alt="Фото автора" width="200px" height="250px">
+                    <h2 class="profile-name">Савельев Антон Алекссевич</h2>
+                    <p class="profile-group">ЭФБО-12-24</p>
                 </div>
             </div>
-            <div id = "footer">Футер</div>
-    </body>
+
+            <div class = "about-me"><p class="profile-description">Обо мне: Тут краткая информация обо мне для быстрого ознакомления с моей личностью и что я представляю из себя</p></div>
+            <div class="skills-container">
+                <h2 class="section-title">Навыки</h2>
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">GOLANG</div>
+                <div class="skill-tag">PYTHON</div>
+                </div>
+            </div>
+            
+            <div class="experience-section">
+                <h2 class="section-title">Опыт работы:</h2>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 1</h3>
+                    <p class="experience-desc">Работал продавцом, продавал разный китайский шлак</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 2</h3>
+                    <p class="experience-desc">Работал в общепите, официантом</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Менеджер</h3>
+                    <p class="experience-desc">Работал в пвз, выдавал всякий китайский шлак</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">Футер</div>
+    </div>
+</body>
 </html>
