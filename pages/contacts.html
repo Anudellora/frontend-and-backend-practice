@@ -3,55 +3,510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты | Семестровая работа</title>
+    <title>Контакты - Портфолио Савельева Антона</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хедер</div>
-        
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <div class="page-header">
-                <h1 class="page-title">Контактная информация</h1>
-            </div>
-            
-            <div class="contacts-container">
-                <div class="contact-item">
-                    <h3 class="contact-label">Адрес электронной почты:</h3>
-                    <p class="contact-info">kekolov10@mail.ru</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3 class="contact-label">Адрес:</h3>
-                    <p class="contact-info">г. Москва, ул. Тверская, д. 15, стр. 3</p>
-                </div>
-                
-                <div class="contact-item">
-                    <button class="call-button" onclick="alert('Функция звонка будет добавлена позже')">
-                        Позвонить мне
-                    </button>
-                </div>
-                
-                <div class="contact-item">
-                    <h3 class="contact-label">Дополнительная информация:</h3>
-                    <p class="contact-info">Режим работы: Пн-Пт с 9:00 до 18:00</p>
-                    <p class="contact-info">Выходные: Сб, Вс</p>
-                    <p class="contact-info">Мы всегда готовы ответить на ваши вопросы и помочь с выбором товаров!</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
+    <!-- Переключатель темы -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="theme-switcher__icon fas fa-moon"></i>
     </div>
+
+    <!-- Основная страница -->
+    <div class="page">
+
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="header__title">Контактная Информация</h1>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">
+                        <i class="fas fa-newspaper"></i> Новости
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">
+                        <i class="fas fa-shopping-cart"></i> Товары
+                    </a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="contacts.html">
+                        <i class="fas fa-phone"></i> Контакты
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">
+                        <i class="fas fa-code"></i> Практики
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main">
+
+            <!-- Блок контактов -->
+            <section class="contacts fade-in-up">
+                <h2 class="contacts__title">
+                    <i class="fas fa-address-book"></i>
+                    Свяжитесь со мной
+                </h2>
+
+                <div class="contacts__list">
+                    <div class="contact-item interactive-hover">
+                        <div class="contact-item__icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-item__title">Электронная почта</h3>
+                        <p class="contact-item__value">
+                            <a href="mailto:kekolov10@mail.ru" class="contact-item__link">
+                                kekolov10@mail.ru
+                            </a>
+                        </p>
+                        <p class="contact-item__description">
+                            Основной способ связи для деловой переписки и вопросов по проектам
+                        </p>
+                    </div>
+
+                    <div class="contact-item interactive-hover">
+                        <div class="contact-item__icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="contact-item__title">Адрес</h3>
+                        <p class="contact-item__value">
+                            г. Москва, ул. Тверская, д. 15, стр. 3
+                        </p>
+                        <p class="contact-item__description">
+                            Местоположение для личных встреч и консультаций
+                        </p>
+                    </div>
+
+                    <div class="contact-item interactive-hover">
+                        <div class="contact-item__icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="contact-item__title">Режим работы</h3>
+                        <p class="contact-item__value">
+                            Пн-Пт: 9:00 - 18:00<br>
+                            Сб-Вс: Выходные
+                        </p>
+                        <p class="contact-item__description">
+                            Время, когда я доступен для связи и консультаций
+                        </p>
+                    </div>
+
+                    <div class="contact-item interactive-hover">
+                        <div class="contact-item__icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <h3 class="contact-item__title">Telegram</h3>
+                        <p class="contact-item__value">
+                            <a href="https://t.me/Anudellora" class="contact-item__link">
+                                @Anudellora
+                            </a>
+                        </p>
+                        <p class="contact-item__description">
+                            Быстрая связь для срочных вопросов и консультаций
+                        </p>
+                    </div>
+
+                    <div class="contact-item interactive-hover">
+                        <div class="contact-item__icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3 class="contact-item__title">GitHub</h3>
+                        <p class="contact-item__value">
+                            <a href="https://github.com/Anudellora" class="contact-item__link" target="_blank">
+                                github.com/Anudellora
+                            </a>
+                        </p>
+                        <p class="contact-item__description">
+                            Мои проекты и портфолио разработчика
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Форма обратной связи -->
+            <section class="feedback-form fade-in-up">
+                <div class="feedback-form__container">
+                    <h2 class="feedback-form__title">
+                        <i class="fas fa-paper-plane"></i>
+                        Форма обратной связи
+                    </h2>
+
+                    <form class="feedback-form__form" id="feedbackForm">
+                        <div class="feedback-form__group">
+                            <label class="feedback-form__label" for="name">
+                                <i class="fas fa-user"></i>
+                                Ваше имя
+                            </label>
+                            <input 
+                                class="feedback-form__input" 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                placeholder="Введите ваше имя"
+                            >
+                        </div>
+
+                        <div class="feedback-form__group">
+                            <label class="feedback-form__label" for="email">
+                                <i class="fas fa-envelope"></i>
+                                Электронная почта
+                            </label>
+                            <input 
+                                class="feedback-form__input" 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="Введите ваш email"
+                            >
+                        </div>
+
+                        <div class="feedback-form__group">
+                            <label class="feedback-form__label" for="subject">
+                                <i class="fas fa-tag"></i>
+                                Тема сообщения
+                            </label>
+                            <select class="feedback-form__select" id="subject" name="subject" required>
+                                <option value="">Выберите тему</option>
+                                <option value="collaboration">Сотрудничество</option>
+                                <option value="question">Вопрос</option>
+                                <option value="feedback">Отзыв</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="feedback-form__group">
+                            <label class="feedback-form__label" for="message">
+                                <i class="fas fa-comment"></i>
+                                Сообщение
+                            </label>
+                            <textarea 
+                                class="feedback-form__textarea" 
+                                id="message" 
+                                name="message" 
+                                required
+                                rows="5"
+                                placeholder="Напишите ваше сообщение..."
+                            ></textarea>
+                        </div>
+
+                        <div class="feedback-form__actions">
+                            <button class="btn feedback-form__btn" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Отправить сообщение
+                            </button>
+                            <button class="btn btn--secondary" type="reset">
+                                <i class="fas fa-undo"></i>
+                                Очистить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Карта (заглушка) -->
+            <section class="map-section fade-in-up">
+                <div class="map-section__container">
+                    <h2 class="map-section__title">
+                        <i class="fas fa-map"></i>
+                        Местоположение
+                    </h2>
+                    <div class="map-placeholder">
+                        <div class="map-placeholder__content">
+                            <i class="fas fa-map-marker-alt map-placeholder__icon"></i>
+                            <h3 class="map-placeholder__title">г. Москва, ул. Тверская, д. 15, стр. 3</h3>
+                            <p class="map-placeholder__text">
+                                Здесь будет интерактивная карта с местоположением
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p class="footer__text">&copy; 2024 Савельев Антон Алексеевич. Все права защищены.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Переключатель темы
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'theme-switcher__icon fas fa-moon';
+            } else {
+                themeIcon.className = 'theme-switcher__icon fas fa-sun';
+            }
+        }
+
+        // Форма обратной связи
+        const feedbackForm = document.getElementById('feedbackForm');
+
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(feedbackForm);
+            const data = Object.fromEntries(formData);
+
+            // Имитация отправки формы
+            const submitBtn = feedbackForm.querySelector('.feedback-form__btn');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    feedbackForm.reset();
+                }, 2000);
+            }, 2000);
+        });
+
+        // Анимация появления элементов
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Копирование контактов в буфер обмена
+        document.querySelectorAll('.contact-item__link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.href.startsWith('mailto:') || link.href === '#') {
+                    e.preventDefault();
+                    const text = link.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        // Показываем уведомление о копировании
+                        const notification = document.createElement('div');
+                        notification.className = 'copy-notification';
+                        notification.textContent = 'Скопировано в буфер обмена!';
+                        document.body.appendChild(notification);
+
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Дополнительные стили для контактов */
+        .contact-item__description {
+            color: var(--color-text-muted);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .contact-item__link {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .contact-item__link:hover {
+            color: var(--color-neon);
+            text-shadow: 0 0 5px var(--color-neon);
+        }
+
+        /* Форма обратной связи */
+        .feedback-form {
+            margin-top: var(--spacing-xxl);
+        }
+
+        .feedback-form__container {
+            background: var(--color-bg-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-primary);
+        }
+
+        .feedback-form__title {
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            text-shadow: 0 0 10px var(--color-primary);
+        }
+
+        .feedback-form__group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feedback-form__label {
+            display: block;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .feedback-form__label i {
+            margin-right: var(--spacing-xs);
+        }
+
+        .feedback-form__input,
+        .feedback-form__select,
+        .feedback-form__textarea {
+            width: 100%;
+            background: var(--color-bg-secondary);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--color-text-primary);
+            font-size: var(--font-size-base);
+            transition: var(--transition-normal);
+        }
+
+        .feedback-form__input:focus,
+        .feedback-form__select:focus,
+        .feedback-form__textarea:focus {
+            outline: none;
+            border-color: var(--color-neon);
+            box-shadow: 0 0 10px rgba(191, 0, 255, 0.3);
+        }
+
+        .feedback-form__textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .feedback-form__actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Карта */
+        .map-section {
+            margin-top: var(--spacing-xxl);
+        }
+
+        .map-section__container {
+            background: var(--color-bg-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-primary);
+        }
+
+        .map-section__title {
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            text-shadow: 0 0 10px var(--color-primary);
+        }
+
+        .map-placeholder {
+            background: var(--color-bg-secondary);
+            border: 2px dashed var(--color-primary);
+            border-radius: var(--border-radius-md);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .map-placeholder__icon {
+            font-size: 48px;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .map-placeholder__title {
+            color: var(--color-primary);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .map-placeholder__text {
+            color: var(--color-text-muted);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Уведомление о копировании */
+        .copy-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-neon);
+            z-index: 10000;
+            animation: fadeInOut 2s ease;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            10%, 90% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .feedback-form__actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feedback-form__btn,
+            .btn--secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
 </body>
 </html>

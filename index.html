@@ -3,59 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
+    <title>Главная - Портфолио Савельева Антона</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хедер</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <div class="profile-header">
-                <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="images/Ава.jpg" alt="Фото автора" width="200px" height="250px">
-                    <h2 class="profile-name">Савельев Антон Алекссевич</h2>
-                    <p class="profile-group">ЭФБО-12-24</p>
-                </div>
-            </div>
-
-            <div class = "about-me"><p class="profile-description">Обо мне: Тут краткая информация обо мне для быстрого ознакомления с моей личностью и что я представляю из себя</p></div>
-            <div class="skills-container">
-                <h2 class="section-title">Навыки</h2>
-                <div class="skill-tag">HTML</div>
-                <div class="skill-tag">CSS</div>
-                <div class="skill-tag">GOLANG</div>
-                <div class="skill-tag">PYTHON</div>
-                </div>
-            </div>
-            
-            <div class="experience-section">
-                <h2 class="section-title">Опыт работы:</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Продавец</h3>
-                    <p class="experience-desc">Работал продавцом, продавал разный китайский шлак</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Официант</h3>
-                    <p class="experience-desc">Работал в общепите, официантом</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Менеджер пвз</h3>
-                    <p class="experience-desc">Работал в пвз, выдавал всякий китайский шлак</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="theme-switcher__icon fas fa-moon"></i>
     </div>
+
+    <div class="page">
+
+        <header class="header">
+            <h1 class="header__title">Портфолио Разработчика</h1>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="pages/index.html">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/news.html">
+                        <i class="fas fa-newspaper"></i> Новости
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/goods.html">
+                        <i class="fas fa-shopping-cart"></i> Товары
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">
+                        <i class="fas fa-phone"></i> Контакты
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/practices.html">
+                        <i class="fas fa-code"></i> Практики
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+
+            <section class="profile fade-in-up">
+                <div class="profile__card">
+                    <div class="profile__content">
+                        <img class="profile__photo" src="images/Ава.jpg" alt="Фото Савельева Антона">
+                        <div class="profile__info">
+                            <h2 class="profile__name">Савельев Антон Алексеевич</h2>
+                            <p class="profile__group">ЭФБО-12-24</p>
+                            <p class="profile__description">
+                                Студент факультета информационных технологий, изучаю веб-разработку 
+                                и современные технологии. Увлекаюсь созданием пользовательских интерфейсов 
+                                и backend разработкой.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Обо мне -->
+            <section class="about fade-in-up">
+                <h2 class="about__title">Обо мне</h2>
+                <div class="about__content">
+                    <p class="about__text">
+                        Тут краткая информация обо мне для быстрого ознакомления с моей личностью 
+                        и что я представляю из себя. Я активно изучаю новые технологии в области 
+                        веб-разработки и стремлюсь создавать качественные пользовательские интерфейсы.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Навыки -->
+            <section class="skills fade-in-up">
+                <h2 class="skills__title">Мои навыки</h2>
+                <div class="skills__list">
+                    <div class="skill skill--html">
+                        <span class="skill__name">HTML</span>
+                    </div>
+                    <div class="skill skill--css">
+                        <span class="skill__name">CSS</span>
+                    </div>
+                    <div class="skill skill--javascript">
+                        <span class="skill__name">JavaScript</span>
+                    </div>
+                    <div class="skill skill--golang">
+                        <span class="skill__name">Golang</span>
+                    </div>
+                    <div class="skill skill--python">
+                        <span class="skill__name">Python</span>
+                    </div>
+                    <div class="skill skill--bootstrap">
+                        <span class="skill__name">Bootstrap</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience fade-in-up">
+                <h2 class="experience__title">Опыт работы</h2>
+                <div class="experience__list">
+                    <div class="experience-card interactive-hover">
+                        <h3 class="experience-card__title">Продавец</h3>
+                        <p class="experience-card__description">
+                            Работал продавцом, продавал разный китайский шлак. 
+                            Получил опыт работы с клиентами и навыки продаж.
+                        </p>
+                    </div>
+                    <div class="experience-card interactive-hover">
+                        <h3 class="experience-card__title">Официант</h3>
+                        <p class="experience-card__description">
+                            Работал в общепите официантом. Развил навыки коммуникации, 
+                            работы в команде и обслуживания клиентов.
+                        </p>
+                    </div>
+                    <div class="experience-card interactive-hover">
+                        <h3 class="experience-card__title">Менеджер ПВЗ</h3>
+                        <p class="experience-card__description">
+                            Работал в ПВЗ, выдавал всякий китайский шлак. 
+                            Получил опыт работы с документооборотом и логистикой.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">&copy; 2024 Савельев Антон Алексеевич.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'theme-switcher__icon fas fa-moon';
+            } else {
+                themeIcon.className = 'theme-switcher__icon fas fa-sun';
+            }
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

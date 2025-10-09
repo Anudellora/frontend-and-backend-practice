@@ -3,59 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости | Семестровая работа</title>
+    <title>Новости - Портфолио Савельева Антона</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хедер</div>
-        
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link active" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <div class="page-header">
-                <h1 class="page-title">Новости блога</h1>
-            </div>
-            
-            <div class="news-container">
-                <article class="news-item">
-                    <h2 class="news-title">Новое обновление для Lies of P добавляет режим New Game+</h2>
-                    <div class="news-meta">
-                        <span class="news-date">25 сентября 2025</span>
-                        <span class="news-author">Автор: GameMaster</span>
-                    </div>
-                    <p class="news-content">Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. Игроки теперь могут проходить игру заново с сохранением части прогресса, что значительно увеличивает реиграбельность этой souls-like игры.</p>
-                </article>
-                
-                <article class="news-item">
-                    <h2 class="news-title">Анонсировано DLC "Shadow of the Erdtree" для Elden Ring</h2>
-                    <div class="news-meta">
-                        <span class="news-date">22 сентября 2025</span>
-                        <span class="news-author">Автор: SoulsLover</span>
-                    </div>
-                    <p class="news-content">FromSoftware официально анонсировали крупное дополнение для Elden Ring под названием "Shadow of the Erdtree". DLC добавит новые области для исследования, уникальных боссов и расширит лор вселенной. Релиз запланирован на первый квартал 2026 года.</p>
-                </article>
-                
-                <article class="news-item">
-                    <h2 class="news-title">Cyberpunk 2077: Phantom Liberty получает финальное обновление</h2>
-                    <div class="news-meta">
-                        <span class="news-date">18 сентября 2025</span>
-                        <span class="news-author">Автор: CyberFan</span>
-                    </div>
-                    <p class="news-content">CD Projekt RED выпустила финальное крупное обновление для дополнения Phantom Liberty игры Cyberpunk 2077. Патч исправляет последние известные баги и добавляет несколько качества жизни улучшений, завершая активную поддержку игры.</p>
-                </article>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
+    <!-- Переключатель темы -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="theme-switcher__icon fas fa-moon"></i>
     </div>
+
+    <!-- Основная страница -->
+    <div class="page">
+
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="header__title">Новости и Обновления</h1>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="news.html">
+                        <i class="fas fa-newspaper"></i> Новости
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">
+                        <i class="fas fa-shopping-cart"></i> Товары
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">
+                        <i class="fas fa-phone"></i> Контакты
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">
+                        <i class="fas fa-code"></i> Практики
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main">
+
+            <!-- Блок новостей -->
+            <section class="news fade-in-up">
+                <h2 class="news__title">
+                    <i class="fas fa-newspaper"></i>
+                    Последние новости
+                </h2>
+
+                <div class="news__list">
+                    <article class="news-item interactive-hover">
+                        <h3 class="news-item__title">
+                            <i class="fas fa-gamepad"></i>
+                            Новое обновление для Lies of P добавляет режим New Game+
+                        </h3>
+                        <time class="news-item__date">
+                            <i class="fas fa-calendar-alt"></i>
+                            25 сентября 2024
+                        </time>
+                        <p class="news-item__text">
+                            Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, 
+                            которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. 
+                            Игроки теперь могут проходить игру заново с сохранением части прогресса, 
+                            что значительно увеличивает реиграбельность этой souls-like игры.
+                        </p>
+                        <div class="news-item__tags">
+                            <span class="news-item__tag">Игры</span>
+                            <span class="news-item__tag">Обновления</span>
+                            <span class="news-item__tag">Lies of P</span>
+                        </div>
+                    </article>
+
+                    <article class="news-item interactive-hover">
+                        <h3 class="news-item__title">
+                            <i class="fas fa-code"></i>
+                            Изучение современных технологий веб-разработки
+                        </h3>
+                        <time class="news-item__date">
+                            <i class="fas fa-calendar-alt"></i>
+                            15 сентября 2024
+                        </time>
+                        <p class="news-item__text">
+                            Активно изучаю новые фреймворки и библиотеки для фронтенд разработки. 
+                            В последнее время сосредоточен на изучении React, Vue.js и TypeScript. 
+                            Также погружаюсь в backend разработку с использованием Node.js и Express.
+                        </p>
+                        <div class="news-item__tags">
+                            <span class="news-item__tag">Обучение</span>
+                            <span class="news-item__tag">Веб-разработка</span>
+                            <span class="news-item__tag">JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="news-item interactive-hover">
+                        <h3 class="news-item__title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Успешное завершение курса по HTML и CSS
+                        </h3>
+                        <time class="news-item__date">
+                            <i class="fas fa-calendar-alt"></i>
+                            1 сентября 2024
+                        </time>
+                        <p class="news-item__text">
+                            Завершил углубленный курс по HTML5 и CSS3 с отличными результатами. 
+                            Изучил современные методологии верстки, включая Flexbox, Grid, 
+                            адаптивный дизайн и БЭМ методологию. Теперь готов применять 
+                            полученные знания в реальных проектах.
+                        </p>
+                        <div class="news-item__tags">
+                            <span class="news-item__tag">Обучение</span>
+                            <span class="news-item__tag">HTML</span>
+                            <span class="news-item__tag">CSS</span>
+                        </div>
+                    </article>
+
+                    <article class="news-item interactive-hover">
+                        <h3 class="news-item__title">
+                            <i class="fas fa-briefcase"></i>
+                            Новый этап в изучении программирования
+                        </h3>
+                        <time class="news-item__date">
+                            <i class="fas fa-calendar-alt"></i>
+                            20 августа 2024
+                        </time>
+                        <p class="news-item__text">
+                            Начинаю углубленное изучение языков программирования. 
+                            В планах освоить Python для backend разработки, 
+                            а также продолжить совершенствование навыков в JavaScript. 
+                            Цель - стать fullstack разработчиком.
+                        </p>
+                        <div class="news-item__tags">
+                            <span class="news-item__tag">Программирование</span>
+                            <span class="news-item__tag">Python</span>
+                            <span class="news-item__tag">Fullstack</span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Кнопка "Загрузить больше" -->
+                <div class="news__load-more">
+                    <button class="btn btn--secondary" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        Загрузить больше новостей
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p class="footer__text">&copy; 2024 Савельев Антон Алексеевич. Все права защищены.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Переключатель темы
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'theme-switcher__icon fas fa-moon';
+            } else {
+                themeIcon.className = 'theme-switcher__icon fas fa-sun';
+            }
+        }
+
+        // Анимация появления элементов
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.news-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Функциональность "Загрузить больше"
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        loadMoreBtn.addEventListener('click', () => {
+            // Имитация загрузки новых новостей
+            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Загрузка...';
+
+            setTimeout(() => {
+                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> Все новости загружены';
+                loadMoreBtn.disabled = true;
+            }, 2000);
+        });
+
+        // Фильтрация по тегам
+        document.querySelectorAll('.news-item__tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const tagText = tag.textContent;
+                const newsItems = document.querySelectorAll('.news-item');
+
+                newsItems.forEach(item => {
+                    const itemTags = Array.from(item.querySelectorAll('.news-item__tag')).map(t => t.textContent);
+
+                    if (itemTags.includes(tagText)) {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                    } else {
+                        item.style.opacity = '0.3';
+                    }
+                });
+
+                // Подсветка активного тега
+                document.querySelectorAll('.news-item__tag').forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+            });
+        });
+    </script>
+
+    <style>
+        /* Дополнительные стили для новостей */
+        .news__load-more {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .news-item__tags {
+            margin-top: var(--spacing-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .news-item__tag {
+            background: var(--color-primary);
+            color: var(--color-text-primary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-xs);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .news-item__tag:hover,
+        .news-item__tag.active {
+            background: var(--color-neon);
+            transform: scale(1.05);
+        }
+
+        .news-item__date i,
+        .news-item__title i {
+            margin-right: var(--spacing-xs);
+            color: var(--color-primary);
+        }
+    </style>
 </body>
 </html>

@@ -3,53 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары | Семестровая работа</title>
+    <title>Товары - Портфолио Савельева Антона</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Хедер</div>
-        
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link active" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <div class="page-header">
-                <h1 class="page-title">Наши товары</h1>
-            </div>
-            
-            <div class="products-container">
-                <div class="product-item">
-                    <img class="product-image" src="../images/image_copy_2.png" alt="Товар 1" width="200" height="150">
-                    <h3 class="product-title">Гуфи телефон</h3>
-                    <p class="product-price">2,999 руб.</p>
-                    <p class="product-description">Винтажный телефон с персонажем Гуфи из Disney</p>
-                </div>
-                
-                <div class="product-item">
-                    <img class="product-image" src="../images/image_copy.png" alt="Товар 2" width="200" height="150">
-                    <h3 class="product-title">Аниме арт</h3>
-                    <p class="product-price">1,500 руб.</p>
-                    <p class="product-description">Стильный черно-белый арт в аниме стиле</p>
-                </div>
-                
-                <div class="product-item">
-                    <img class="product-image" src="../images/image.png" alt="Товар 3" width="200" height="150">
-                    <h3 class="product-title">Фигурка Гуфи рыбак</h3>
-                    <p class="product-price">899 руб.</p>
-                    <p class="product-description">Коллекционная фигурка Гуфи на рыбалке</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">Футер</div>
+    <!-- Переключатель темы -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="theme-switcher__icon fas fa-moon"></i>
     </div>
+
+    <!-- Основная страница -->
+    <div class="page">
+
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="header__title">Каталог Товаров</h1>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">
+                        <i class="fas fa-newspaper"></i> Новости
+                    </a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="goods.html">
+                        <i class="fas fa-shopping-cart"></i> Товары
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">
+                        <i class="fas fa-phone"></i> Контакты
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">
+                        <i class="fas fa-code"></i> Практики
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main">
+
+            <!-- Фильтры товаров -->
+            <section class="goods-filters fade-in-up">
+                <div class="goods-filters__container">
+                    <h3 class="goods-filters__title">
+                        <i class="fas fa-filter"></i>
+                        Фильтры
+                    </h3>
+                    <div class="goods-filters__list">
+                        <button class="goods-filter goods-filter--active" data-filter="all">
+                            <i class="fas fa-th"></i> Все товары
+                        </button>
+                        <button class="goods-filter" data-filter="vintage">
+                            <i class="fas fa-history"></i> Винтаж
+                        </button>
+                        <button class="goods-filter" data-filter="art">
+                            <i class="fas fa-paint-brush"></i> Арт
+                        </button>
+                        <button class="goods-filter" data-filter="collectible">
+                            <i class="fas fa-gem"></i> Коллекционное
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок товаров -->
+            <section class="goods fade-in-up">
+                <h2 class="goods__title">
+                    <i class="fas fa-shopping-bag"></i>
+                    Наши товары
+                </h2>
+
+                <div class="goods__list" id="goodsList">
+                    <article class="goods-item interactive-hover" data-category="vintage">
+                        <div class="goods-item__image-container">
+                            <img class="goods-item__image" src="../images/image.png" alt="Гуфи телефон">
+                            <div class="goods-item__badge goods-item__badge--popular">
+                                <i class="fas fa-star"></i> Хит продаж
+                            </div>
+                        </div>
+                        <div class="goods-item__content">
+                            <h3 class="goods-item__title">
+                                <i class="fas fa-phone"></i>
+                                Гуфи телефон
+                            </h3>
+                            <p class="goods-item__price">
+                                <span class="goods-item__currency">₽</span>
+                                <span class="goods-item__amount">2,999</span>
+                            </p>
+                            <p class="goods-item__description">
+                                Винтажный телефон с персонажем Гуфи из Disney. 
+                                Отличное состояние, полностью функциональный, 
+                                станет отличным дополнением к любой коллекции.
+                            </p>
+                            <div class="goods-item__tags">
+                                <span class="goods-item__tag">Disney</span>
+                                <span class="goods-item__tag">Винтаж</span>
+                                <span class="goods-item__tag">Телефон</span>
+                            </div>
+                            <div class="goods-item__actions">
+                                <button class="btn goods-item__btn-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                    В корзину
+                                </button>
+                                <button class="btn btn--secondary goods-item__btn-favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    
+
+                    <article class="goods-item interactive-hover" data-category="collectible">
+                        <div class="goods-item__image-container">
+                            <img class="goods-item__image" src="../images/image_copy.png" alt="Фигурка Гуфи рыбак">
+                            <div class="goods-item__badge goods-item__badge--limited">
+                                <i class="fas fa-crown"></i> Лимитка
+                            </div>
+                        </div>
+                        <div class="goods-item__content">
+                            <h3 class="goods-item__title">
+                                <i class="fas fa-chess-rook"></i>
+                                Фигурка Гуфи рыбак
+                            </h3>
+                            <p class="goods-item__price">
+                                <span class="goods-item__currency">₽</span>
+                                <span class="goods-item__amount">899</span>
+                            </p>
+                            <p class="goods-item__description">
+                                Коллекционная фигурка Гуфи на рыбалке. 
+                                Высокое качество исполнения, детализированная проработка, 
+                                отличное дополнение к коллекции Disney.
+                            </p>
+                            <div class="goods-item__tags">
+                                <span class="goods-item__tag">Disney</span>
+                                <span class="goods-item__tag">Фигурка</span>
+                                <span class="goods-item__tag">Коллекция</span>
+                            </div>
+                            <div class="goods-item__actions">
+                                <button class="btn goods-item__btn-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                    В корзину
+                                </button>
+                                <button class="btn btn--secondary goods-item__btn-favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                   
+
+            <!-- Корзина (мини-виджет) -->
+            <div class="cart-widget" id="cartWidget">
+                <div class="cart-widget__header">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-widget__title">Корзина</span>
+                    <span class="cart-widget__count" id="cartCount">0</span>
+                </div>
+                <div class="cart-widget__items" id="cartItems"></div>
+                <div class="cart-widget__total">
+                    Итого: <span id="cartTotal">0</span> ₽
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p class="footer__text">&copy; 2024 Савельев Антон Алексеевич. Все права защищены.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Переключатель темы
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'theme-switcher__icon fas fa-moon';
+            } else {
+                themeIcon.className = 'theme-switcher__icon fas fa-sun';
+            }
+        }
+
+        // Корзина
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartWidget = document.getElementById('cartWidget');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+
+        function updateCartUI() {
+            cartCount.textContent = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = total.toLocaleString();
+        }
+
+        // Фильтрация товаров
+        const filters = document.querySelectorAll('.goods-filter');
+        const goodsItems = document.querySelectorAll('.goods-item');
+
+        filters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const filterValue = filter.dataset.filter;
+
+                filters.forEach(f => f.classList.remove('goods-filter--active'));
+                filter.classList.add('goods-filter--active');
+
+                goodsItems.forEach(item => {
+                    if (filterValue === 'all' || item.dataset.category === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 50);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // Добавление в корзину
+        document.querySelectorAll('.goods-item__btn-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const item = btn.closest('.goods-item');
+                const title = item.querySelector('.goods-item__title').textContent;
+                const price = parseInt(item.querySelector('.goods-item__amount').textContent.replace(',', ''));
+
+                cart.push({ title, price });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartUI();
+
+                // Анимация добавления
+                btn.innerHTML = '<i class="fas fa-check"></i> Добавлено';
+                btn.classList.add('added');
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-cart-plus"></i> В корзину';
+                    btn.classList.remove('added');
+                }, 2000);
+            });
+        });
+
+        // Избранное
+        document.querySelectorAll('.goods-item__btn-favorite').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const icon = btn.querySelector('i');
+
+                if (icon.classList.contains('far')) {
+                    icon.className = 'fas fa-heart';
+                    btn.style.color = 'var(--color-neon)';
+                } else {
+                    icon.className = 'far fa-heart';
+                    btn.style.color = '';
+                }
+            });
+        });
+
+        // Анимация появления элементов
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.goods-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Инициализация
+        updateCartUI();
+    </script>
+
+    <style>
+        /* Дополнительные стили для товаров */
+        .goods-filters {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .goods-filters__container {
+            background: var(--color-bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-primary);
+        }
+
+        .goods-filters__title {
+            color: var(--color-primary);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        .goods-filters__list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .goods-filter {
+            background: var(--color-bg-secondary);
+            color: var(--color-text-secondary);
+            border: 2px solid var(--color-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: var(--font-size-sm);
+        }
+
+        .goods-filter:hover,
+        .goods-filter--active {
+            background: var(--color-primary);
+            color: var(--color-text-primary);
+            transform: translateY(-2px);
+        }
+
+        .goods-item__image-container {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .goods-item__badge {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            color: white;
+        }
+
+        .goods-item__badge--popular {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+        }
+
+        .goods-item__badge--new {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+
+        .goods-item__badge--limited {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .goods-item__content {
+            padding: var(--spacing-md);
+        }
+
+        .goods-item__price {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-neon);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .goods-item__currency {
+            font-size: var(--font-size-sm);
+        }
+
+        .goods-item__tags {
+            margin: var(--spacing-md) 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .goods-item__tag {
+            background: var(--color-primary);
+            color: var(--color-text-primary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-xs);
+        }
+
+        .goods-item__actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .goods-item__btn-cart {
+            flex: 1;
+        }
+
+        .goods-item__btn-cart.added {
+            background: var(--color-accent);
+        }
+
+        .cart-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--color-bg-card);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            min-width: 200px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+        }
+
+        .cart-widget__header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .cart-widget__count {
+            background: var(--color-neon);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xs);
+        }
+
+        .cart-widget__total {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-align: center;
+            margin-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-primary);
+            padding-top: var(--spacing-sm);
+        }
+
+        @media (max-width: 768px) {
+            .goods-filters__list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cart-widget {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+            }
+        }
+    </style>
 </body>
 </html>
