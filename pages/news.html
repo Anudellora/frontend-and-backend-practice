@@ -4,284 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости - Портфолио Савельева Антона</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Переключатель темы -->
-    <div class="theme-switcher" id="themeSwitcher">
-        <i class="theme-switcher__icon fas fa-moon"></i>
-    </div>
 
-    <!-- Основная страница -->
-    <div class="page">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-code-slash"></i> Портфолио
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house-door"></i> Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.html">
+                            <i class="bi bi-newspaper"></i> Новости
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goods.html">
+                            <i class="bi bi-cart"></i> Товары
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">
+                            <i class="bi bi-telephone"></i> Контакты
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="practices.html">
+                            <i class="bi bi-code"></i> Практики
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Шапка -->
-        <header class="header">
-            <h1 class="header__title">Новости и Обновления</h1>
-        </header>
+    <!-- Основной контент -->
+    <div class="container" style="margin-top: 100px; margin-bottom: 60px;">
+        <section class="section fade-in-up">
+            <h2 class="section__title text-center mb-5">
+                <i class="bi bi-newspaper"></i> Новости и Обновления
+            </h2>
 
-        <!-- Навигация -->
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a class="nav__link" href="../index.html">
-                        <i class="fas fa-home"></i> Главная
-                    </a>
-                </li>
-                <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="news.html">
-                        <i class="fas fa-newspaper"></i> Новости
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="goods.html">
-                        <i class="fas fa-shopping-cart"></i> Товары
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="contacts.html">
-                        <i class="fas fa-phone"></i> Контакты
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="practices.html">
-                        <i class="fas fa-code"></i> Практики
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Основной контент -->
-        <main class="main">
-
-            <!-- Блок новостей -->
-            <section class="news fade-in-up">
-                <h2 class="news__title">
-                    <i class="fas fa-newspaper"></i>
-                    Последние новости
-                </h2>
-
-                <div class="news__list">
-                    <article class="news-item interactive-hover">
-                        <h3 class="news-item__title">
-                            <i class="fas fa-gamepad"></i>
-                            Новое обновление для Lies of P добавляет режим New Game+
-                        </h3>
-                        <time class="news-item__date">
-                            <i class="fas fa-calendar-alt"></i>
-                            25 сентября 2024
-                        </time>
-                        <p class="news-item__text">
-                            Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, 
-                            которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. 
-                            Игроки теперь могут проходить игру заново с сохранением части прогресса, 
-                            что значительно увеличивает реиграбельность этой souls-like игры.
-                        </p>
-                        <div class="news-item__tags">
-                            <span class="news-item__tag">Игры</span>
-                            <span class="news-item__tag">Обновления</span>
-                            <span class="news-item__tag">Lies of P</span>
+            <div class="row g-4">
+                <!-- Новость 1 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-primary">Игры</span>
+                                <small class="text-muted">25 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">Новое обновление для Lies of P добавляет режим New Game+</h3>
+                            <p class="card-text">
+                                Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. Игроки теперь могут проходить игру заново с сохранением части прогресса, что значительно увеличивает реиграбельность этой souls-like игры.
+                            </p>
                         </div>
-                    </article>
-
-                    <article class="news-item interactive-hover">
-                        <h3 class="news-item__title">
-                            <i class="fas fa-code"></i>
-                            Изучение современных технологий веб-разработки
-                        </h3>
-                        <time class="news-item__date">
-                            <i class="fas fa-calendar-alt"></i>
-                            15 сентября 2024
-                        </time>
-                        <p class="news-item__text">
-                            Активно изучаю новые фреймворки и библиотеки для фронтенд разработки. 
-                            В последнее время сосредоточен на изучении React, Vue.js и TypeScript. 
-                            Также погружаюсь в backend разработку с использованием Node.js и Express.
-                        </p>
-                        <div class="news-item__tags">
-                            <span class="news-item__tag">Обучение</span>
-                            <span class="news-item__tag">Веб-разработка</span>
-                            <span class="news-item__tag">JavaScript</span>
-                        </div>
-                    </article>
-
-                    <article class="news-item interactive-hover">
-                        <h3 class="news-item__title">
-                            <i class="fas fa-graduation-cap"></i>
-                            Успешное завершение курса по HTML и CSS
-                        </h3>
-                        <time class="news-item__date">
-                            <i class="fas fa-calendar-alt"></i>
-                            1 сентября 2024
-                        </time>
-                        <p class="news-item__text">
-                            Завершил углубленный курс по HTML5 и CSS3 с отличными результатами. 
-                            Изучил современные методологии верстки, включая Flexbox, Grid, 
-                            адаптивный дизайн и БЭМ методологию. Теперь готов применять 
-                            полученные знания в реальных проектах.
-                        </p>
-                        <div class="news-item__tags">
-                            <span class="news-item__tag">Обучение</span>
-                            <span class="news-item__tag">HTML</span>
-                            <span class="news-item__tag">CSS</span>
-                        </div>
-                    </article>
-
-                    <article class="news-item interactive-hover">
-                        <h3 class="news-item__title">
-                            <i class="fas fa-briefcase"></i>
-                            Новый этап в изучении программирования
-                        </h3>
-                        <time class="news-item__date">
-                            <i class="fas fa-calendar-alt"></i>
-                            20 августа 2024
-                        </time>
-                        <p class="news-item__text">
-                            Начинаю углубленное изучение языков программирования. 
-                            В планах освоить Python для backend разработки, 
-                            а также продолжить совершенствование навыков в JavaScript. 
-                            Цель - стать fullstack разработчиком.
-                        </p>
-                        <div class="news-item__tags">
-                            <span class="news-item__tag">Программирование</span>
-                            <span class="news-item__tag">Python</span>
-                            <span class="news-item__tag">Fullstack</span>
-                        </div>
-                    </article>
+                    </div>
                 </div>
 
-                <!-- Кнопка "Загрузить больше" -->
-                <div class="news__load-more">
-                    <button class="btn btn--secondary" id="loadMoreBtn">
-                        <i class="fas fa-plus"></i>
-                        Загрузить больше новостей
-                    </button>
+                <!-- Новость 2 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-success">Web-разработка</span>
+                                <small class="text-muted">20 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">Выпущена новая версия React 18.3</h3>
+                            <p class="card-text">
+                                Команда React анонсировала выход версии 18.3, которая включает улучшения производительности, новые хуки и улучшенную поддержку TypeScript. Особое внимание уделено оптимизации рендеринга и работе с асинхронными компонентами.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </section>
 
-        </main>
+                <!-- Новость 3 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-primary">Технологии</span>
+                                <small class="text-muted">15 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">Go 1.22 представляет улучшенную систему модулей</h3>
+                            <p class="card-text">
+                                Новая версия языка программирования Go включает значительные улучшения в системе управления зависимостями, повышенную производительность компилятора и новые возможности для работы с дженериками. Обновление особенно важно для разработчиков микросервисов.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Футер -->
-        <footer class="footer">
-            <p class="footer__text">&copy; 2024 Савельев Антон Алексеевич. Все права защищены.</p>
-        </footer>
+                <!-- Новость 4 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-success">Образование</span>
+                                <small class="text-muted">10 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">Открыт набор на новый курс по fullstack разработке</h3>
+                            <p class="card-text">
+                                Стартует интенсивный курс по современной fullstack разработке с использованием React, Node.js, PostgreSQL и Docker. Программа включает практические проекты, менторскую поддержку и помощь в трудоустройстве.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Новость 5 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-primary">Игры</span>
+                                <small class="text-muted">5 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">Анонсировано DLC для Lies of P</h3>
+                            <p class="card-text">
+                                Разработчики подтвердили работу над масштабным дополнением, которое расширит историю Пиноккио новыми локациями, боссами и механиками. Релиз планируется на начало 2025 года.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Новость 6 -->
+                <div class="col-lg-6">
+                    <div class="card news-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-success">Технологии</span>
+                                <small class="text-muted">1 сентября 2024</small>
+                            </div>
+                            <h3 class="card-title h5">PostgreSQL 16 с улучшенной производительностью</h3>
+                            <p class="card-text">
+                                Вышла новая мажорная версия PostgreSQL с значительными улучшениями в скорости выполнения запросов, поддержкой новых типов данных и расширенными возможностями репликации. Миграция рекомендуется для production окружений.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // Переключатель темы
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+    <!-- Футер -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Савельев Антон Алексеевич.</p>
+        </div>
+    </footer>
 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        themeSwitcher.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.className = 'theme-switcher__icon fas fa-moon';
-            } else {
-                themeIcon.className = 'theme-switcher__icon fas fa-sun';
-            }
-        }
-
-        // Анимация появления элементов
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        document.querySelectorAll('.news-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Функциональность "Загрузить больше"
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        loadMoreBtn.addEventListener('click', () => {
-            // Имитация загрузки новых новостей
-            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Загрузка...';
-
-            setTimeout(() => {
-                loadMoreBtn.innerHTML = '<i class="fas fa-check"></i> Все новости загружены';
-                loadMoreBtn.disabled = true;
-            }, 2000);
-        });
-
-        // Фильтрация по тегам
-        document.querySelectorAll('.news-item__tag').forEach(tag => {
-            tag.addEventListener('click', () => {
-                const tagText = tag.textContent;
-                const newsItems = document.querySelectorAll('.news-item');
-
-                newsItems.forEach(item => {
-                    const itemTags = Array.from(item.querySelectorAll('.news-item__tag')).map(t => t.textContent);
-
-                    if (itemTags.includes(tagText)) {
-                        item.style.display = 'block';
-                        item.style.opacity = '1';
-                    } else {
-                        item.style.opacity = '0.3';
-                    }
-                });
-
-                // Подсветка активного тега
-                document.querySelectorAll('.news-item__tag').forEach(t => t.classList.remove('active'));
-                tag.classList.add('active');
-            });
-        });
-    </script>
-
-    <style>
-        /* Дополнительные стили для новостей */
-        .news__load-more {
-            text-align: center;
-            margin-top: var(--spacing-xl);
-        }
-
-        .news-item__tags {
-            margin-top: var(--spacing-md);
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-xs);
-        }
-
-        .news-item__tag {
-            background: var(--color-primary);
-            color: var(--color-text-primary);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--border-radius-sm);
-            font-size: var(--font-size-xs);
-            cursor: pointer;
-            transition: var(--transition-fast);
-        }
-
-        .news-item__tag:hover,
-        .news-item__tag.active {
-            background: var(--color-neon);
-            transform: scale(1.05);
-        }
-
-        .news-item__date i,
-        .news-item__title i {
-            margin-right: var(--spacing-xs);
-            color: var(--color-primary);
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
