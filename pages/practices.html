@@ -8,33 +8,72 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/style.css">
     <style>
-        /* Белый текст для читаемости */
         body {
             color: #ffffff;
         }
-        
+
         .card {
             background-color: rgba(29, 29, 29, 0.9);
             border: 1px solid rgba(157, 78, 221, 0.3);
             color: #ffffff;
         }
-        
-        .practices-section__title,
-        .card-title,
-        .card-text,
-        h1, h2, h3, h4, h5, h6 {
-            color: #ffffff !important;
+
+        .progress-box {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(199, 125, 255, 0.1));
+            border: 2px solid rgba(157, 78, 221, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
         }
-        
-        .carousel-project-title,
-        .carousel-project-description {
-            color: #ffffff !important;
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(42, 42, 42, 0.6);
+            border-radius: 10px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .progress-item .date {
+            min-width: 100px;
+            font-weight: bold;
+            color: var(--color-secondary);
+        }
+
+        .progress-item .task {
+            flex-grow: 1;
+            margin: 0 15px;
+        }
+
+        .progress-item .status {
+            min-width: 120px;
+            text-align: right;
+        }
+
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .status-completed {
+            background: rgba(25, 135, 84, 0.3);
+            color: #4caf50;
+            border: 1px solid #4caf50;
+        }
+
+        .status-progress {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+            border: 1px solid #ffc107;
         }
     </style>
 </head>
 <body>
 
-    <!-- Навигация (единая для всех страниц) -->
+    <!-- Навигация -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
@@ -77,7 +116,141 @@
 
     <!-- Основной контент -->
     <div class="container" style="margin-top: 100px; margin-bottom: 60px;">
-        
+
+        <!-- Блок учебного прогресса -->
+        <section class="section fade-in-up">
+            <div class="progress-box">
+                <h2 class="text-center mb-4">
+                    <i class="bi bi-graph-up-arrow"></i> Мой учебный прогресс
+                </h2>
+
+                <div class="progress-item">
+                    <div class="date">15 дек</div>
+                    <div class="task">Верстка макета сайта</div>
+                    <div class="status">
+                        <span class="status-badge status-completed">
+                            <i class="bi bi-check-circle"></i> Выполнено
+                        </span>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="date">10 дек</div>
+                    <div class="task">JavaScript основы</div>
+                    <div class="status">
+                        <span class="status-badge status-completed">
+                            <i class="bi bi-check-circle"></i> Выполнено
+                        </span>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="date">05 дек</div>
+                    <div class="task">Работа с формами</div>
+                    <div class="status">
+                        <span class="status-badge status-progress">
+                            <i class="bi bi-clock-history"></i> In progress
+                        </span>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="date">01 дек</div>
+                    <div class="task">Адаптивный дизайн</div>
+                    <div class="status">
+                        <span class="status-badge status-progress">
+                            <i class="bi bi-clock-history"></i> In progress
+                        </span>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="date">25 ноя</div>
+                    <div class="task">React компоненты и хуки</div>
+                    <div class="status">
+                        <span class="status-badge status-progress">
+                            <i class="bi bi-clock-history"></i> In progress
+                        </span>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="date">20 ноя</div>
+                    <div class="task">Golang Backend API</div>
+                    <div class="status">
+                        <span class="status-badge status-progress">
+                            <i class="bi bi-clock-history"></i> In progress
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Текущие курсы -->
+        <section class="section fade-in-up mb-5">
+            <h2 class="section__title text-center mb-5">
+                <i class="bi bi-book"></i> Текущие курсы
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-code-square" style="font-size: 3rem; color: var(--color-primary);"></i>
+                            <h5 class="card-title mt-3">Golang разработка</h5>
+                            <p class="card-text text-muted">Изучение Go для backend разработки</p>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar" role="progressbar" style="width: 60%; background-color: var(--color-primary);" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">60% завершено</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-filetype-jsx" style="font-size: 3rem; color: var(--color-primary);"></i>
+                            <h5 class="card-title mt-3">React</h5>
+                            <p class="card-text text-muted">Современная frontend разработка</p>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar" role="progressbar" style="width: 45%; background-color: var(--color-primary);" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">45% завершено</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-palette" style="font-size: 3rem; color: var(--color-primary);"></i>
+                            <h5 class="card-title mt-3">Верстка макетов</h5>
+                            <p class="card-text text-muted">HTML5, CSS3, адаптивный дизайн</p>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar" role="progressbar" style="width: 85%; background-color: var(--color-primary);" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">85% завершено</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-file-earmark-code" style="font-size: 3rem; color: var(--color-primary);"></i>
+                            <h5 class="card-title mt-3">JavaScript</h5>
+                            <p class="card-text text-muted">ES6+, асинхронность, DOM</p>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar" role="progressbar" style="width: 70%; background-color: var(--color-primary);" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <small class="text-muted d-block mt-2">70% завершено</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Карусель проектов -->
         <section class="section fade-in-up mb-5">
             <h2 class="section__title text-center mb-5">
@@ -137,84 +310,75 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    
                 <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Предыдущий</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Следующий</span>
                 </button>
             </div>
         </section>
-x
-        <!-- Bootstrap компоненты демо -->
-        <section class="section fade-in-up mt-5">
+
+        <!-- Практические работы -->
+        <section class="section fade-in-up">
             <h2 class="section__title text-center mb-5">
-                <i class="bi bi-box"></i> Демонстрация Bootstrap компонентов
+                <i class="bi bi-journal-code"></i> Выполненные практические работы
             </h2>
 
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card text-center">
+                <!-- Практика 1: БЭМ -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <i class="bi bi-window" style="font-size: 3rem; color: var(--color-primary);"></i>
-                            <h5 class="card-title mt-3">Модальные окна</h5>
-                            <p class="card-text text-muted">Демонстрация работы с модальными окнами Bootstrap</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Открыть модальное окно
-                            </button>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="card-title">Методология БЭМ</h4>
+                                <span class="badge bg-success">Выполнено</span>
+                            </div>
+                            <p class="card-text">
+                                Изучение и применение методологии БЭМ для именования CSS-классов, создание системы CSS переменных.
+                            </p>
+                            <h6 class="mt-3">Выполненные задачи:</h6>
+                            <ul>
+                                <li>Создание системы CSS переменных</li>
+                                <li>Рефакторинг классов по БЭМ</li>
+                                <li>Интерактивные состояния элементов</li>
+                            </ul>
+                            <div class="d-flex gap-2 flex-wrap mt-3">
+                                <span class="badge bg-primary">CSS Variables</span>
+                                <span class="badge bg-primary">БЭМ</span>
+                                <span class="badge bg-primary">Flexbox</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card text-center">
+                <!-- Практика 2: Bootstrap -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <i class="bi bi-chat-quote" style="font-size: 3rem; color: var(--color-primary);"></i>
-                            <h5 class="card-title mt-3">Всплывающие подсказки</h5>
-                            <p class="card-text text-muted">Интерактивные подсказки для улучшения UX</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Это всплывающая подсказка!">
-                                Навести для подсказки
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-ui-checks" style="font-size: 3rem; color: var(--color-primary);"></i>
-                            <h5 class="card-title mt-3">Формы</h5>
-                            <p class="card-text text-muted">Стилизованные формы с валидацией</p>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">
-                                Открыть форму
-                            </button>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h4 class="card-title">Bootstrap Framework</h4>
+                                <span class="badge bg-success">Выполнено</span>
+                            </div>
+                            <p class="card-text">
+                                Применение Bootstrap для быстрой разработки адаптивных веб-интерфейсов.
+                            </p>
+                            <h6 class="mt-3">Выполненные задачи:</h6>
+                            <ul>
+                                <li>Адаптивная навигация</li>
+                                <li>Карточки контента</li>
+                                <li>Bootstrap Icons</li>
+                            </ul>
+                            <div class="d-flex gap-2 flex-wrap mt-3">
+                                <span class="badge bg-info">Bootstrap</span>
+                                <span class="badge bg-info">Grid System</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- Модальное окно -->
-    <div class="modal fade" id="exampleModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background-color: rgba(29, 29, 29, 0.98); color: #ffffff;">
-                <div class="modal-header">
-                    <h5 class="modal-title">Пример модального окна</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Это пример модального окна Bootstrap. Здесь может быть любой контент!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Сохранить</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Футер -->
@@ -225,11 +389,5 @@ x
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
 </body>
 </html>
