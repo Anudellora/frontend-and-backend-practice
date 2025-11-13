@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация и форма обратной связи - Портфолио Савельева Антона">
     <title>Контакты - Портфолио Савельева Антона</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
@@ -41,49 +42,108 @@
             background-color: rgba(42, 42, 42, 0.95);
             border-color: var(--color-primary);
             color: #ffffff;
+            outline: 3px solid rgba(157, 78, 221, 0.5);
+            outline-offset: 2px;
         }
 
         .form-control::placeholder {
             color: #999999;
         }
+
+        .form-control:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+
+        .form-control:valid:not(:placeholder-shown) {
+            border-color: #198754;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .required-indicator {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .form-help-text {
+            font-size: 0.875rem;
+            color: #cccccc;
+            margin-top: 0.25rem;
+        }
+
+        a:focus, 
+        button:focus, 
+        .btn:focus,
+        .nav-link:focus {
+            outline: 3px solid #0066cc;
+            outline-offset: 2px;
+        }
+
+        /* Стили для уведомления об успешной отправке */
+        .success-message {
+            display: none;
+            background: rgba(25, 135, 84, 0.2);
+            border: 2px solid #198754;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Навигация с улучшенной доступностью -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Основная навигация">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <i class="bi bi-code-slash"></i> Портфолио
+            <a class="navbar-brand" href="../index.html" aria-label="Вернуться на главную страницу портфолио">
+                <i class="bi bi-code-slash" aria-hidden="true"></i> Портфолио
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигационное меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">
-                            <i class="bi bi-house-door"></i> Главная
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.html">
-                            <i class="bi bi-newspaper"></i> Новости
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="goods.html">
-                            <i class="bi bi-cart"></i> Товары
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="contacts.html">
-                            <i class="bi bi-telephone"></i> Контакты
+                            <i class="bi bi-house-door" aria-hidden="true"></i> 
+                            <span>Главная</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="practices.html">
-                            <i class="bi bi-code"></i> Практики
+                            <i class="bi bi-code" aria-hidden="true"></i> 
+                            <span>Практики</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacts.html" aria-current="page">
+                            <i class="bi bi-telephone" aria-hidden="true"></i> 
+                            <span>Контакты</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">
+                            <i class="bi bi-newspaper" aria-hidden="true"></i> 
+                            <span>Новости</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goods.html">
+                            <i class="bi bi-cart" aria-hidden="true"></i> 
+                            <span>Товары</span>
+                        </a>
+                    </li>
                         </a>
                     </li>
                 </ul>
@@ -92,160 +152,332 @@
     </nav>
 
     <!-- Основной контент -->
-    <div class="container" style="margin-top: 100px; margin-bottom: 60px;">
-        <section class="section fade-in-up">
-            <h2 class="section__title text-center mb-5">
-                <i class="bi bi-telephone"></i> Свяжитесь со мной
-            </h2>
+    <main role="main" id="main-content" style="margin-top: 100px; margin-bottom: 60px;">
+        <div class="container">
+            <section class="section fade-in-up" aria-labelledby="page-title">
+                <h1 id="page-title" class="section__title text-center mb-5">
+                    <i class="bi bi-telephone" aria-hidden="true"></i> Контакты и связь
+                </h1>
 
-            <div class="row g-4 mb-5">
-                <!-- Email -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-envelope-fill text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">Электронная почта</h5>
-                            <p class="card-text text-muted">Основной способ связи для деловой переписки</p>
-                            <a href="mailto:kekolov10@mail.ru" class="btn btn-outline-primary btn-sm">
-                                kekolov10@mail.ru
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="row g-4">
+                    <!-- Контактная информация -->
+                    <div class="col-lg-6">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title mb-4">
+                                    <i class="bi bi-info-circle" aria-hidden="true"></i> Контактная информация
+                                </h2>
 
-                <!-- Address -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-geo-alt-fill text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">Адрес</h5>
-                            <p class="card-text text-muted">Местоположение для личных встреч</p>
-                            <p class="mb-0"><small>г. Москва, ул. Тверская, д. 15, стр. 3</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Schedule -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-clock-fill text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">Режим работы</h5>
-                            <p class="card-text text-muted">Время доступности</p>
-                            <p class="mb-0">
-                                <small>Пн-Пт: 9:00 - 18:00<br>Сб-Вс: Выходные</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Telegram -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="bi bi-telegram text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">Telegram</h5>
-                            <p class="card-text text-muted">Быстрая связь для срочных вопросов</p>
-                            <a href="https://t.me/username" class="btn btn-outline-primary btn-sm">
-                                @username
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Links -->
-            <div class="row g-4 mb-5">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="bi bi-github text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">GitHub</h5>
-                            <p class="card-text text-muted">Мои проекты и портфолио разработчика</p>
-                            <a href="https://github.com/username" class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-github"></i> Перейти на GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="bi bi-linkedin text-primary" style="font-size: 3rem;"></i>
-                            <h5 class="card-title mt-3">LinkedIn</h5>
-                            <p class="card-text text-muted">Профессиональная сеть и контакты</p>
-                            <a href="https://linkedin.com/in/username" class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-linkedin"></i> Перейти на LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <h3 class="text-center mb-4">
-                                <i class="bi bi-chat-dots"></i> Форма обратной связи
-                            </h3>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Ваше имя</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+                                <!-- Email -->
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-2">
+                                        <i class="bi bi-envelope" aria-hidden="true"></i> Email
+                                    </h3>
+                                    <p class="card-text">
+                                        <a href="mailto:anton.savelyev@example.com" 
+                                           class="text-decoration-none" 
+                                           style="color: var(--color-primary);"
+                                           aria-label="Написать письмо на адрес anton.savelyev@example.com">
+                                            anton.savelyev@example.com
+                                        </a>
+                                    </p>
+                                    <p class="text-muted form-help-text">Основной способ связи для деловой переписки</p>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Тема сообщения</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="О чем вы хотите написать?" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Сообщение</label>
-                                    <textarea class="form-control" id="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-send"></i> Отправить сообщение
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Map -->
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="text-center mb-4">
-                        <i class="bi bi-map"></i> Местоположение
-                    </h3>
-                    <p class="text-center text-muted mb-4">г. Москва, ул. Тверская, д. 15, стр. 3</p>
-                    <div class="ratio ratio-21x9">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzIwLjkiTiAzN8KwMzcnMDIuMyJF!5e0!3m2!1sru!2sru!4v1234567890"
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
+                                <!-- Адрес -->
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-2">
+                                        <i class="bi bi-geo-alt" aria-hidden="true"></i> Адрес
+                                    </h3>
+                                    <address class="card-text mb-1">
+                                        г. Москва, ул. Тверская, д. 15, стр. 3
+                                    </address>
+                                    <p class="text-muted form-help-text">Местоположение для личных встреч</p>
+                                </div>
+
+                                <!-- Время работы -->
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-2">
+                                        <i class="bi bi-clock" aria-hidden="true"></i> Время доступности
+                                    </h3>
+                                    <p class="card-text">
+                                        <span class="d-block">Пн-Пт: 9:00 - 18:00</span>
+                                        <span class="d-block">Сб-Вс: Выходные</span>
+                                    </p>
+                                </div>
+
+                                <!-- Телефон -->
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-2">
+                                        <i class="bi bi-phone" aria-hidden="true"></i> Телефон
+                                    </h3>
+                                    <p class="card-text">
+                                        <a href="tel:+79991234567" 
+                                           class="text-decoration-none" 
+                                           style="color: var(--color-primary);"
+                                           aria-label="Позвонить по номеру +7 999 123 45 67">
+                                            +7 (999) 123-45-67
+                                        </a>
+                                    </p>
+                                    <p class="text-muted form-help-text">Быстрая связь для срочных вопросов</p>
+                                </div>
+
+                                <!-- Социальные сети -->
+                                <div>
+                                    <h3 class="h6 mb-3">
+                                        <i class="bi bi-share" aria-hidden="true"></i> Социальные сети
+                                    </h3>
+                                    <nav aria-label="Ссылки на социальные сети">
+                                        <div class="d-flex gap-3">
+                                            <a href="https://github.com/Anudellora" 
+                                               class="btn btn-outline-primary"
+                                               target="_blank" 
+                                               rel="noopener noreferrer"
+                                               aria-label="Посетить мой профиль на GitHub (откроется в новой вкладке)">
+                                                <i class="bi bi-github" aria-hidden="true"></i>
+                                                <span class="visually-hidden">GitHub</span>
+                                            </a>
+                                            <a href="https://linkedin.com" 
+                                               class="btn btn-outline-primary"
+                                               target="_blank" 
+                                               rel="noopener noreferrer"
+                                               aria-label="Посетить мой профиль в LinkedIn (откроется в новой вкладке)">
+                                                <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                                <span class="visually-hidden">LinkedIn</span>
+                                            </a>
+                                        </div>
+                                    </nav>
+                                    <p class="text-muted form-help-text mt-2">Профессиональная сеть и контакты</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Форма обратной связи с полной доступностью -->
+                    <div class="col-lg-6">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title mb-4" id="contact-form-title">
+                                    <i class="bi bi-envelope" aria-hidden="true"></i> Форма обратной связи
+                                </h2>
+
+                                <form id="contactForm" 
+                                      aria-labelledby="contact-form-title" 
+                                      novalidate>
+
+                                    <fieldset>
+                                        <legend class="visually-hidden">Контактная информация отправителя</legend>
+
+                                        <!-- Поле имени -->
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">
+                                                Ваше имя 
+                                                <span class="required-indicator" aria-hidden="true">*</span>
+                                            </label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="name" 
+                                                   name="name"
+                                                   placeholder="Введите ваше имя" 
+                                                   required 
+                                                   aria-required="true"
+                                                   aria-describedby="name-help"
+                                                   minlength="2"
+                                                   maxlength="100"
+                                                   autocomplete="name">
+                                            <div id="name-help" class="form-help-text">
+                                                Обязательное поле. Введите ваше полное имя
+                                            </div>
+                                        </div>
+
+                                        <!-- Поле email -->
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">
+                                                Email 
+                                                <span class="required-indicator" aria-hidden="true">*</span>
+                                            </label>
+                                            <input type="email" 
+                                                   class="form-control" 
+                                                   id="email" 
+                                                   name="email"
+                                                   placeholder="your@email.com" 
+                                                   required 
+                                                   aria-required="true"
+                                                   aria-describedby="email-help"
+                                                   autocomplete="email">
+                                            <div id="email-help" class="form-help-text">
+                                                Обязательное поле. Мы отправим ответ на этот адрес
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend class="visually-hidden">Детали сообщения</legend>
+
+                                        <!-- Поле темы -->
+                                        <div class="mb-3">
+                                            <label for="subject" class="form-label">
+                                                Тема сообщения 
+                                                <span class="required-indicator" aria-hidden="true">*</span>
+                                            </label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="subject" 
+                                                   name="subject"
+                                                   placeholder="О чем вы хотите написать?" 
+                                                   required 
+                                                   aria-required="true"
+                                                   aria-describedby="subject-help"
+                                                   minlength="5"
+                                                   maxlength="200">
+                                            <div id="subject-help" class="form-help-text">
+                                                Обязательное поле. Кратко опишите тему обращения
+                                            </div>
+                                        </div>
+
+                                        <!-- Поле сообщения -->
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">
+                                                Сообщение 
+                                                <span class="required-indicator" aria-hidden="true">*</span>
+                                            </label>
+                                            <textarea class="form-control" 
+                                                      id="message" 
+                                                      name="message"
+                                                      rows="5" 
+                                                      placeholder="Ваше сообщение..." 
+                                                      required 
+                                                      aria-required="true"
+                                                      aria-describedby="message-help"
+                                                      minlength="10"
+                                                      maxlength="1000"></textarea>
+                                            <div id="message-help" class="form-help-text">
+                                                Обязательное поле. Опишите ваш вопрос или предложение подробно
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="d-grid">
+                                        <button type="submit" 
+                                                class="btn btn-primary"
+                                                aria-label="Отправить форму обратной связи">
+                                            <i class="bi bi-send" aria-hidden="true"></i> Отправить сообщение
+                                        </button>
+                                    </div>
+
+                                    <!-- Сообщение об успешной отправке -->
+                                    <div id="successMessage" 
+                                         class="success-message" 
+                                         role="status" 
+                                         aria-live="polite" 
+                                         aria-atomic="true">
+                                        <h3 class="h5 mb-2">
+                                            <i class="bi bi-check-circle" aria-hidden="true"></i> Сообщение отправлено!
+                                        </h3>
+                                        <p class="mb-0">Спасибо за ваше обращение. Мы ответим вам в ближайшее время.</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
+    </main>
 
     <!-- Футер -->
-    <footer class="text-center py-4" style="background-color: rgba(13, 13, 13, 0.9); border-top: 1px solid rgba(157, 78, 221, 0.3);">
+    <footer role="contentinfo">
         <div class="container">
-            <p class="mb-0" style="color: #ffffff;">&copy; 2025 Савельев Антон Алексеевич.</p>
+            <p>&copy; 2024 Савельев Антон. Все права защищены.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Обработка формы с доступностью
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // Добавляем валидацию в реальном времени
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('is-invalid')) {
+                        validateField(this);
+                    }
+                });
+            });
+
+            function validateField(field) {
+                if (!field.validity.valid) {
+                    field.setAttribute('aria-invalid', 'true');
+                    field.classList.add('is-invalid');
+                    field.classList.remove('is-valid');
+                } else {
+                    field.setAttribute('aria-invalid', 'false');
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                }
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Проверяем валидность всех полей
+                let isValid = true;
+                inputs.forEach(input => {
+                    validateField(input);
+                    if (!input.validity.valid) {
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    // Скрываем форму и показываем сообщение об успехе
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+
+                    // Фокусируемся на сообщении об успехе
+                    successMessage.setAttribute('tabindex', '-1');
+                    successMessage.focus();
+
+                    // Для демонстрации: через 5 секунд возвращаем форму
+                    setTimeout(() => {
+                        form.reset();
+                        inputs.forEach(input => {
+                            input.classList.remove('is-valid', 'is-invalid');
+                            input.removeAttribute('aria-invalid');
+                        });
+                        form.style.display = 'block';
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Фокусируемся на первом невалидном поле
+                    const firstInvalid = form.querySelector('.is-invalid');
+                    if (firstInvalid) {
+                        firstInvalid.focus();
+                    }
+                }
+            });
+
+            // Добавляем поддержку клавиши Escape для очистки формы
+            form.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (confirm('Вы уверены, что хотите очистить форму?')) {
+                        form.reset();
+                        inputs.forEach(input => {
+                            input.classList.remove('is-valid', 'is-invalid');
+                            input.removeAttribute('aria-invalid');
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
