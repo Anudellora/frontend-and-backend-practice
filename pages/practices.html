@@ -9,14 +9,45 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/style.css">
     <style>
+        :root {
+            --color-primary: #9d4edd;
+            --color-secondary: #c77dff;
+            --color-dark: #1d1d1d;
+            --color-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            color: #ffffff;
+            color: var(--color-text);
+            background-color: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        body:focus-within {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
 
         .card {
             background-color: rgba(29, 29, 29, 0.9);
             border: 1px solid rgba(157, 78, 221, 0.3);
-            color: #ffffff;
+            color: var(--color-text);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+            border-color: rgba(157, 78, 221, 0.6);
         }
 
         .progress-box {
@@ -35,6 +66,13 @@
             background: rgba(42, 42, 42, 0.6);
             border-radius: 10px;
             border-left: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .progress-item:hover,
+        .progress-item:focus-within {
+            background: rgba(60, 60, 60, 0.8);
+            border-left-color: var(--color-secondary);
         }
 
         .progress-item .date {
@@ -57,181 +95,106 @@
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
+            display: inline-block;
         }
 
         .status-completed {
             background: rgba(25, 135, 84, 0.3);
             color: #4caf50;
-            border: 1px solid #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.5);
         }
 
-        .status-progress {
-            background: rgba(255, 193, 7, 0.3);
-            color: #ffc107;
-            border: 1px solid #ffc107;
+        .status-in-progress {
+            background: rgba(255, 152, 0, 0.2);
+            color: #ffa500;
+            border: 1px solid rgba(255, 152, 0, 0.5);
         }
 
-        /* Стили для модального окна с проектом */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(29, 29, 29, 0.98);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.5);
-            z-index: 1000;
-            max-width: 600px;
-            width: 90%;
-            border: 2px solid var(--color-primary);
+        .status-pending {
+            background: rgba(244, 67, 54, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(244, 67, 54, 0.5);
         }
 
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal:focus {
-            outline: 3px solid var(--color-neon);
-            outline-offset: 2px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(157, 78, 221, 0.2);
-            border: 1px solid var(--color-primary);
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px 12px;
+        .nav-link {
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
-            transition: all 0.3s ease;
-            line-height: 1;
-        }
-
-        .close-btn:hover {
-            background: var(--color-primary);
-            transform: scale(1.1);
-        }
-
-        .close-btn:focus {
-            outline: 2px solid var(--color-neon);
             outline-offset: 2px;
         }
 
-        .project-link {
-            display: block;
-            padding: 12px 20px;
-            margin: 10px 0;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.6);
-            color: white;
-        }
-
-        .project-link:focus {
-            outline: 3px solid var(--color-neon);
-            outline-offset: 2px;
-        }
-
-        .project-link i {
-            margin-right: 8px;
-        }
-
-        /* Улучшенные стили фокуса */
-        a:focus, 
-        button:focus, 
-        .btn:focus,
+        .nav-link:hover,
         .nav-link:focus {
-            outline: 3px solid #0066cc;
+            color: var(--color-secondary) !important;
+            outline: 2px solid var(--color-primary);
+        }
+
+        .nav-link.active {
+            color: var(--color-secondary);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--color-primary);
             outline-offset: 2px;
         }
 
-        .demo-btn {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+        @media (max-width: 768px) {
+            .progress-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-        .demo-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Визуально скрытый текст */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+            .progress-item .status {
+                width: 100%;
+                text-align: left;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
-<body>
-
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Основная навигация">
+<body role="document">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Основная навигация" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="../index.html" aria-label="Вернуться на главную страницу портфолио">
-                <i class="bi bi-code-slash" aria-hidden="true"></i> Портфолио
+            <a class="navbar-brand" href="../index.html" title="Перейти на главную страницу">
+                <i class="bi bi-code-slash" aria-hidden="true"></i>
+                <span>Портфолио</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигационное меню">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">
-                            <i class="bi bi-house-door" aria-hidden="true"></i> 
+                        <a class="nav-link" href="../index.html" title="Главная страница">
+                            <i class="bi bi-house-door" aria-hidden="true"></i>
                             <span>Главная</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">
-                            <i class="bi bi-telephone" aria-hidden="true"></i> 
+                        <a class="nav-link" href="contacts.html" title="Страница контактов">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
                             <span>Контакты</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="practices.html" aria-current="page">
-                            <i class="bi bi-code" aria-hidden="true"></i> 
-                            <span>Практики</span>
+                        <a class="nav-link" href="goods.html" title="Товары и проекты">
+                            <i class="bi bi-shop" aria-hidden="true"></i>
+                            <span>Товары</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="news.html">
-                            <i class="bi bi-newspaper" aria-hidden="true"></i> 
+                        <a class="nav-link" href="news.html" title="Новости">
+                            <i class="bi bi-newspaper" aria-hidden="true"></i>
                             <span>Новости</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="goods.html">
-                            <i class="bi bi-cart" aria-hidden="true"></i> 
-                            <span>Товары</span>
+                        <a class="nav-link active" href="practices.html" aria-current="page" title="Практические работы">
+                            <i class="bi bi-code" aria-hidden="true"></i>
+                            <span>Практики</span>
                         </a>
                     </li>
                 </ul>
@@ -239,353 +202,161 @@
         </div>
     </nav>
 
-    <!-- Основной контент -->
-    <main role="main" id="main-content" style="margin-top: 100px; margin-bottom: 60px;">
-        <div class="container">
-            <section class="section fade-in-up" aria-labelledby="page-title">
-                <h1 id="page-title" class="section__title text-center mb-5">
-                    <i class="bi bi-code" aria-hidden="true"></i> Практические работы и проекты
-                </h1>
+    <main class="container mt-5 pt-3">
+        <h1 id="page-title" class="mb-4">Практические работы и проекты</h1>
 
-                <!-- Прогресс выполнения -->
-                <article class="progress-box" aria-labelledby="progress-title">
-                    <h2 id="progress-title" class="text-center mb-4">
-                        <i class="bi bi-list-check" aria-hidden="true"></i> Прогресс выполнения практик
-                    </h2>
-
-                    <div class="progress-item">
-                        <div class="date">13.11.2024</div>
-                        <div class="task">Практическое занятие 17: A11y-аудит и обеспечение доступности</div>
-                        <div class="status">
-                            <span class="status-badge status-completed" role="status" aria-label="Статус: Завершено">
-                                <i class="bi bi-check-circle" aria-hidden="true"></i> Завершено
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="date">13.11.2024</div>
-                        <div class="task">Практическое занятие 18: Использование Lighthouse и анализ проблем доступности</div>
-                        <div class="status">
-                            <span class="status-badge status-completed" role="status" aria-label="Статус: Завершено">
-                                <i class="bi bi-check-circle" aria-hidden="true"></i> Завершено
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="date">В процессе</div>
-                        <div class="task">Улучшение доступности всех страниц сайта</div>
-                        <div class="status">
-                            <span class="status-badge status-progress" role="status" aria-label="Статус: В процессе">
-                                <i class="bi bi-hourglass-split" aria-hidden="true"></i> В процессе
-                            </span>
-                        </div>
-                    </div>
+        <section aria-labelledby="directions-heading">
+            <h2 id="directions-heading" class="mb-4">Направления обучения</h2>
+            <div class="progress-box">
+                <article class="progress-item">
+                    <span class="date" aria-label="Направление">Golang</span>
+                    <span class="task">Изучение Go для backend разработки</span>
+                    <span class="status">
+                        <span class="status-badge status-in-progress" aria-label="Статус: в процессе">60%</span>
+                    </span>
                 </article>
 
-                <!-- Направления обучения -->
-                <h2 class="text-center mb-4">
-                    <i class="bi bi-mortarboard" aria-hidden="true"></i> Направления обучения
-                </h2>
+                <article class="progress-item">
+                    <span class="date" aria-label="Направление">Frontend</span>
+                    <span class="task">Современная frontend разработка</span>
+                    <span class="status">
+                        <span class="status-badge status-in-progress" aria-label="Статус: в процессе">75%</span>
+                    </span>
+                </article>
 
-                <div class="row g-4 mb-5">
-                    <div class="col-md-4">
-                        <article class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-code-square" style="font-size: 3rem; color: var(--color-primary);" aria-hidden="true"></i>
-                                <h3 class="card-title mt-3">Golang разработка</h3>
-                                <p class="card-text text-muted">Изучение Go для backend разработки</p>
-                                <div class="progress" style="height: 8px;" role="progressbar" 
-                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" 
-                                     aria-label="Прогресс изучения Golang: 60%">
-                                    <div class="progress-bar" style="width: 60%; background-color: var(--color-primary);"></div>
-                                </div>
-                                <p class="mt-2 mb-0 text-muted">60% завершено</p>
-                            </div>
-                        </article>
-                    </div>
+                <article class="progress-item">
+                    <span class="date" aria-label="Направление">DB</span>
+                    <span class="task">Работа с базами данных PostgreSQL</span>
+                    <span class="status">
+                        <span class="status-badge status-in-progress" aria-label="Статус: в процессе">50%</span>
+                    </span>
+                </article>
+            </div>
+        </section>
 
-                    <div class="col-md-4">
-                        <article class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-palette" style="font-size: 3rem; color: var(--color-secondary);" aria-hidden="true"></i>
-                                <h3 class="card-title mt-3">Frontend разработка</h3>
-                                <p class="card-text text-muted">Современная frontend разработка</p>
-                                <div class="progress" style="height: 8px;" role="progressbar" 
-                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" 
-                                     aria-label="Прогресс изучения Frontend: 75%">
-                                    <div class="progress-bar" style="width: 75%; background-color: var(--color-secondary);"></div>
-                                </div>
-                                <p class="mt-2 mb-0 text-muted">75% завершено</p>
-                            </div>
-                        </article>
-                    </div>
+        <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="mb-4">Выполненные проекты</h2>
 
-                    <div class="col-md-4">
-                        <article class="card text-center h-100">
-                            <div class="card-body">
-                                <i class="bi bi-database" style="font-size: 3rem; color: var(--color-accent);" aria-hidden="true"></i>
-                                <h3 class="card-title mt-3">PostgreSQL</h3>
-                                <p class="card-text text-muted">Работа с базами данных</p>
-                                <div class="progress" style="height: 8px;" role="progressbar" 
-                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" 
-                                     aria-label="Прогресс изучения PostgreSQL: 50%">
-                                    <div class="progress-bar" style="width: 50%; background-color: var(--color-accent);"></div>
-                                </div>
-                                <p class="mt-2 mb-0 text-muted">50% завершено</p>
-                            </div>
-                        </article>
-                    </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Современное портфолио</h3>
+                            <p class="card-text">Создание современного портфолио с использованием HTML5, CSS3 и JavaScript. Включает адаптивную верстку, анимации и интерактивные элементы.</p>
+                            <p class="card-text small text-muted">Технологии: HTML, CSS, JavaScript</p>
+                            <span class="status-badge status-completed" aria-label="Статус проекта: завершен">✓ Завершено</span>
+                        </div>
+                    </article>
                 </div>
 
-                <!-- Выполненные проекты -->
-                <h2 class="text-center mb-4">
-                    <i class="bi bi-folder" aria-hidden="true"></i> Выполненные проекты
-                </h2>
-
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <article class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <i class="bi bi-brush" aria-hidden="true"></i> Современное портфолио
-                                </h3>
-                                <p class="card-text">
-                                    Создание современного портфолио с использованием HTML5, CSS3 и JavaScript. 
-                                    Включает адаптивную верстку, анимации и интерактивные элементы.
-                                </p>
-                                <div class="mt-3">
-                                    <span class="badge bg-primary me-2">HTML5</span>
-                                    <span class="badge bg-primary me-2">CSS3</span>
-                                    <span class="badge bg-primary">JavaScript</span>
-                                </div>
-                                <button class="btn btn-outline-primary mt-3 demo-btn" 
-                                        onclick="openProjectModal()" 
-                                        aria-label="Посмотреть демонстрацию проекта Современное портфолио">
-                                    <i class="bi bi-eye" aria-hidden="true"></i> Демо проекта
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <article class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <i class="bi bi-cart" aria-hidden="true"></i> Интернет-магазин
-                                </h3>
-                                <p class="card-text">
-                                    Разработка полнофункционального интернет-магазина с корзиной, фильтрами и 
-                                    адаптивным дизайном.
-                                </p>
-                                <div class="mt-3">
-                                    <span class="badge bg-success me-2">Адаптивный дизайн</span>
-                                    <span class="badge bg-success">JavaScript</span>
-                                </div>
-                                <button class="btn btn-outline-primary mt-3 demo-btn" 
-                                        onclick="openProjectModal()" 
-                                        aria-label="Посмотреть демонстрацию проекта Интернет-магазин">
-                                    <i class="bi bi-eye" aria-hidden="true"></i> Демо проекта
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <article class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <i class="bi bi-file-code" aria-hidden="true"></i> БЭМ методология
-                                </h3>
-                                <p class="card-text">
-                                    Изучение и применение методологии БЭМ для именования CSS-классов, 
-                                    создание системы CSS переменных.
-                                </p>
-                                <div class="mt-3">
-                                    <span class="badge bg-secondary me-2">БЭМ</span>
-                                    <span class="badge bg-secondary">CSS Variables</span>
-                                </div>
-                                <button class="btn btn-outline-primary mt-3 demo-btn" 
-                                        onclick="openProjectModal()" 
-                                        aria-label="Посмотреть демонстрацию проекта БЭМ методология">
-                                    <i class="bi bi-eye" aria-hidden="true"></i> Демо проекта
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <article class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">
-                                    <i class="bi bi-bootstrap" aria-hidden="true"></i> Bootstrap проект
-                                </h3>
-                                <p class="card-text">
-                                    Применение Bootstrap для быстрой разработки адаптивных веб-интерфейсов.
-                                </p>
-                                <div class="mt-3">
-                                    <span class="badge bg-info">Bootstrap</span>
-                                </div>
-                                <button class="btn btn-outline-primary mt-3 demo-btn" 
-                                        onclick="openProjectModal()" 
-                                        aria-label="Посмотреть демонстрацию проекта Bootstrap">
-                                    <i class="bi bi-eye" aria-hidden="true"></i> Демо проекта
-                                </button>
-                            </div>
-                        </article>
-                    </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Интернет-магазин</h3>
+                            <p class="card-text">Разработка полнофункционального интернет-магазина с корзиной, фильтрами и адаптивным дизайном. Backend на Go, база данных PostgreSQL.</p>
+                            <p class="card-text small text-muted">Технологии: Go, PostgreSQL, JavaScript</p>
+                            <span class="status-badge status-completed" aria-label="Статус проекта: завершен">✓ Завершено</span>
+                        </div>
+                    </article>
                 </div>
-            </section>
-        </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">БЭМ методология</h3>
+                            <p class="card-text">Изучение и применение методологии БЭМ для именования CSS-классов, создание системы CSS переменных и переиспользуемых компонентов.</p>
+                            <p class="card-text small text-muted">Технологии: CSS, БЭМ, Architecture</p>
+                            <span class="status-badge status-completed" aria-label="Статус проекта: завершен">✓ Завершено</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Bootstrap проект</h3>
+                            <p class="card-text">Применение Bootstrap для быстрой разработки адаптивных веб-интерфейсов. Создание компонентной архитектуры для масштабируемых приложений.</p>
+                            <p class="card-text small text-muted">Технологии: Bootstrap, Responsive Design</p>
+                            <span class="status-badge status-completed" aria-label="Статус проекта: завершен">✓ Завершено</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">REST API с Go</h3>
+                            <p class="card-text">Разработка REST API на Go с использованием фреймворка Gin. Интеграция с PostgreSQL, реализация авторизации и валидации данных.</p>
+                            <p class="card-text small text-muted">Технологии: Go, Gin, PostgreSQL, REST</p>
+                            <span class="status-badge status-in-progress" aria-label="Статус проекта: в процессе">⏳ В процессе</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Система управления контентом</h3>
+                            <p class="card-text">Разработка CMS на базе Go для управления веб-контентом. Включает администраторский интерфейс, систему ролей и прав доступа.</p>
+                            <p class="card-text small text-muted">Технологии: Go, Vue.js, PostgreSQL</p>
+                            <span class="status-badge status-pending" aria-label="Статус проекта: ожидание">📋 Планируется</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Overlay для модального окна -->
-    <div class="overlay" onclick="closeProjectModal()" aria-hidden="true"></div>
-
-    <!-- Модальное окно с доступными ссылками -->
-    <div class="modal" 
-         id="projectModal" 
-         role="dialog" 
-         aria-modal="true" 
-         aria-labelledby="modal-title" 
-         aria-describedby="modal-desc" 
-         tabindex="-1">
-
-        <h2 id="modal-title" class="mb-3">
-            <i class="bi bi-link-45deg" aria-hidden="true"></i> Ссылки на проект
-        </h2>
-
-        <p id="modal-desc" class="text-muted mb-4">
-            Выберите, что вы хотите посмотреть:
-        </p>
-
-        <nav aria-label="Ссылки на проект">
-            <a href="https://github.com/Anudellora/frontend-and-backend-practice" 
-               class="project-link" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               aria-label="Открыть исходный код проекта на GitHub (откроется в новой вкладке)">
-                <i class="bi bi-github" aria-hidden="true"></i> Исходный код на GitHub
-                <span class="visually-hidden">(откроется в новой вкладке)</span>
-            </a>
-
-            <a href="https://anudellora.github.io/frontend-and-backend-practice/pages/practices.html" 
-               class="project-link" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               aria-label="Открыть живую демонстрацию сайта (откроется в новой вкладке)">
-                <i class="bi bi-globe" aria-hidden="true"></i> Живая демонстрация сайта
-                <span class="visually-hidden">(откроется в новой вкладке)</span>
-            </a>
-        </nav>
-
-        <button class="close-btn" 
-                onclick="closeProjectModal()" 
-                aria-label="Закрыть окно со ссылками на проект">
-            × 
-            <span class="visually-hidden">Закрыть</span>
-        </button>
-    </div>
-
-    <!-- Футер -->
-    <footer role="contentinfo">
+    <footer class="py-5 text-center text-muted mt-5" role="contentinfo" aria-label="Подвал сайта">
         <div class="container">
-            <p>&copy; 2024 Савельев Антон. Все права защищены.</p>
+            <p>&copy; 2024 Портфолио Савельева Антона. Все права защищены.</p>
+            <p>Контакт: <a href="mailto:anton@example.com" title="Отправить письмо">anton@example.com</a></p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let previousActiveElement;
-
-        function openProjectModal() {
-            // Запоминаем активный элемент для возврата фокуса
-            previousActiveElement = document.activeElement;
-
-            const modal = document.getElementById('projectModal');
-            const overlay = document.querySelector('.overlay');
-
-            // Показываем модалку и overlay
-            modal.style.display = 'block';
-            overlay.style.display = 'block';
-
-            // Скрываем основной контент от скринридера
-            const mainContent = document.getElementById('main-content');
-            const nav = document.querySelector('nav');
-            const footer = document.querySelector('footer');
-
-            mainContent.setAttribute('aria-hidden', 'true');
-            nav.setAttribute('aria-hidden', 'true');
-            footer.setAttribute('aria-hidden', 'true');
-
-            // Фокусируемся на модалке
-            modal.focus();
-
-            // Добавляем обработчик Escape
-            document.addEventListener('keydown', handleEscape);
-
-            // Добавляем обработчик Tab для захвата фокуса
-            modal.addEventListener('keydown', trapFocus);
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('projectModal');
-            const overlay = document.querySelector('.overlay');
-
-            // Скрываем модалку и overlay
-            modal.style.display = 'none';
-            overlay.style.display = 'none';
-
-            // Возвращаем видимость основному контенту
-            const mainContent = document.getElementById('main-content');
-            const nav = document.querySelector('nav');
-            const footer = document.querySelector('footer');
-
-            mainContent.removeAttribute('aria-hidden');
-            nav.removeAttribute('aria-hidden');
-            footer.removeAttribute('aria-hidden');
-
-            // Возвращаем фокус на предыдущий элемент
-            if (previousActiveElement) {
-                previousActiveElement.focus();
-            }
-
-            // Убираем обработчики
-            document.removeEventListener('keydown', handleEscape);
-            modal.removeEventListener('keydown', trapFocus);
-        }
-
-        function handleEscape(event) {
-            if (event.key === 'Escape') {
-                closeProjectModal();
-            }
-        }
-
-        function trapFocus(event) {
-            if (event.key === 'Tab') {
-                const modal = document.getElementById('projectModal');
-                const focusableElements = modal.querySelectorAll(
-                    'a, button, [href], [tabindex]:not([tabindex="-1"])'
-                );
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                // Зацикливаем фокус внутри модалки
-                if (event.shiftKey && document.activeElement === firstElement) {
-                    event.preventDefault();
-                    lastElement.focus();
-                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                    event.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        }
-
-        // Закрытие модалки по клику на overlay
+        // Улучшенная навигация по Tab
         document.addEventListener('DOMContentLoaded', function() {
-            const overlay = document.querySelector('.overlay');
-            overlay.addEventListener('click', closeProjectModal);
+            // Обработка фокуса для элементов
+            const focusableElements = document.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+
+            focusableElements.forEach((element) => {
+                element.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+
+                element.addEventListener('focus', function() {
+                    this.style.outline = '2px solid #9d4edd';
+                    this.style.outlineOffset = '2px';
+                });
+
+                // Skip link доступности
+                if (element.classList.contains('skip-link')) {
+                    element.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.focus();
+                            target.scrollIntoView();
+                        }
+                    });
+                }
+            });
+
+            // Клавиши навигации
+            document.addEventListener('keydown', function(e) {
+                // Tab обработка встроена в браузер
+                if (e.key === 'Home') {
+                    e.preventDefault();
+                    focusableElements[0]?.focus();
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    focusableElements[focusableElements.length - 1]?.focus();
+                }
+            });
         });
     </script>
 </body>

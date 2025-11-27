@@ -3,48 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новости технологий, разработки и программирования - Портфолио Савельева Антона">
     <title>Новости - Портфолио Савельева Антона</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/style.css">
-</head>
-<body>
+    <style>
+        :root {
+            --color-primary: #9d4edd;
+            --color-secondary: #c77dff;
+        }
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .news-item {
+            background-color: rgba(29, 29, 29, 0.9);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover,
+        .news-item:focus-within {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
+            border-color: rgba(157, 78, 221, 0.6);
+        }
+
+        .news-item h3 {
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .news-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(199, 125, 255, 0.1));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+            outline-offset: 2px;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--color-secondary) !important;
+            outline: 2px solid var(--color-primary);
+        }
+
+        .nav-link.active {
+            color: var(--color-secondary);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body role="document">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Основная навигация" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <i class="bi bi-code-slash"></i> Портфолио
+            <a class="navbar-brand" href="../index.html" title="Перейти на главную страницу">
+                <i class="bi bi-code-slash" aria-hidden="true"></i>
+                <span>Портфолио</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">
-                            <i class="bi bi-house-door"></i> Главная
+                        <a class="nav-link" href="../index.html" title="Главная страница">
+                            <i class="bi bi-house-door" aria-hidden="true"></i>
+                            <span>Главная</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">
-                            <i class="bi bi-telephone" aria-hidden="true"></i> 
+                        <a class="nav-link" href="contacts.html" title="Страница контактов">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
                             <span>Контакты</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="practices.html" aria-current="page">
-                            <i class="bi bi-code" aria-hidden="true"></i> 
+                        <a class="nav-link" href="goods.html" title="Товары и проекты">
+                            <i class="bi bi-shop" aria-hidden="true"></i>
+                            <span>Товары</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.html" aria-current="page" title="Новости">
+                            <i class="bi bi-newspaper" aria-hidden="true"></i>
+                            <span>Новости</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="practices.html" title="Практические работы">
+                            <i class="bi bi-code" aria-hidden="true"></i>
                             <span>Практики</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="news.html">
-                            <i class="bi bi-newspaper"></i> Новости
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="goods.html">
-                            <i class="bi bi-cart"></i> Товары
                         </a>
                     </li>
                 </ul>
@@ -52,120 +134,97 @@
         </div>
     </nav>
 
-    <!-- Основной контент -->
-    <div class="container" style="margin-top: 100px; margin-bottom: 60px;">
-        <section class="section fade-in-up">
-            <h2 class="section__title text-center mb-5">
-                <i class="bi bi-newspaper"></i> Новости и Обновления
-            </h2>
+    <main class="container mt-5 pt-3">
+        <h1 id="page-title" class="mb-4">Новости технологий и разработки</h1>
 
-            <div class="row g-4">
-                <!-- Новость 1 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-primary">Игры</span>
-                                <small class="text-muted">25 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">Новое обновление для Lies of P добавляет режим New Game+</h3>
-                            <p class="card-text">
-                                Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. Игроки теперь могут проходить игру заново с сохранением части прогресса, что значительно увеличивает реиграбельность этой souls-like игры.
-                            </p>
-                        </div>
+        <section aria-label="Список новостей">
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">🎮</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">Lies of P: New Game+ и новый контент</h2>
+                        <p>Разработчики из Round8 Studio выпустили долгожданное обновление для Lies of P, которое включает в себя режим New Game+, новые виды оружия и улучшенную систему крафта. Игроки теперь могут проходить игру заново с сохранением части прогресса, что значительно увеличивает реиграбельность этой souls-like игры.</p>
                     </div>
                 </div>
+            </article>
 
-                <!-- Новость 2 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-success">Web-разработка</span>
-                                <small class="text-muted">20 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">Выпущена новая версия React 18.3</h3>
-                            <p class="card-text">
-                                Команда React анонсировала выход версии 18.3, которая включает улучшения производительности, новые хуки и улучшенную поддержку TypeScript. Особое внимание уделено оптимизации рендеринга и работе с асинхронными компонентами.
-                            </p>
-                        </div>
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">⚛️</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">React 18.3: Улучшения производительности</h2>
+                        <p>Команда React анонсировала выход версии 18.3, которая включает улучшения производительности, новые хуки и улучшенную поддержку TypeScript. Особое внимание уделено оптимизации рендеринга и работе с асинхронными компонентами. Обновление рекомендуется для всех production приложений.</p>
                     </div>
                 </div>
+            </article>
 
-                <!-- Новость 3 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-primary">Технологии</span>
-                                <small class="text-muted">15 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">Go 1.22 представляет улучшенную систему модулей</h3>
-                            <p class="card-text">
-                                Новая версия языка программирования Go включает значительные улучшения в системе управления зависимостями, повышенную производительность компилятора и новые возможности для работы с дженериками. Обновление особенно важно для разработчиков микросервисов.
-                            </p>
-                        </div>
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">🐹</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">Go 1.22: Новые возможности для микросервисов</h2>
+                        <p>Новая версия языка программирования Go включает значительные улучшения в системе управления зависимостями, повышенную производительность компилятора и новые возможности для работы с дженериками. Обновление особенно важно для разработчиков микросервисов и высоконагруженных систем.</p>
                     </div>
                 </div>
+            </article>
 
-                <!-- Новость 4 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-success">Образование</span>
-                                <small class="text-muted">10 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">Открыт набор на новый курс по fullstack разработке</h3>
-                            <p class="card-text">
-                                Стартует интенсивный курс по современной fullstack разработке с использованием React, Node.js, PostgreSQL и Docker. Программа включает практические проекты, менторскую поддержку и помощь в трудоустройстве.
-                            </p>
-                        </div>
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">📚</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">Интенсивный курс Fullstack разработки</h2>
+                        <p>Стартует интенсивный курс по современной fullstack разработке с использованием React, Node.js, PostgreSQL и Docker. Программа включает практические проекты, менторскую поддержку и помощь в трудоустройстве. Набор ограничен до 20 человек.</p>
                     </div>
                 </div>
+            </article>
 
-                <!-- Новость 5 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-primary">Игры</span>
-                                <small class="text-muted">5 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">Анонсировано DLC для Lies of P</h3>
-                            <p class="card-text">
-                                Разработчики подтвердили работу над масштабным дополнением, которое расширит историю Пиноккио новыми локациями, боссами и механиками. Релиз планируется на начало 2025 года.
-                            </p>
-                        </div>
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">🎬</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">Lies of P: Масштабное дополнение</h2>
+                        <p>Разработчики подтвердили работу над масштабным дополнением, которое расширит историю Пиноккио новыми локациями, боссами и механиками. Релиз планируется на начало 2025 года. Фанаты игры могут ожидать 20+ часов нового контента.</p>
                     </div>
                 </div>
+            </article>
 
-                <!-- Новость 6 -->
-                <div class="col-lg-6">
-                    <div class="card news-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <span class="badge bg-success">Технологии</span>
-                                <small class="text-muted">1 сентября 2024</small>
-                            </div>
-                            <h3 class="card-title h5">PostgreSQL 16 с улучшенной производительностью</h3>
-                            <p class="card-text">
-                                Вышла новая мажорная версия PostgreSQL с значительными улучшениями в скорости выполнения запросов, поддержкой новых типов данных и расширенными возможностями репликации. Миграция рекомендуется для production окружений.
-                            </p>
-                        </div>
+            <article class="news-item">
+                <div class="d-flex align-items-start">
+                    <span class="news-icon" aria-hidden="true">🗄️</span>
+                    <div style="flex: 1;">
+                        <h2 class="mb-2">PostgreSQL 16: Новая версия БД</h2>
+                        <p>Вышла новая мажорная версия PostgreSQL с значительными улучшениями в скорости выполнения запросов, поддержкой новых типов данных и расширенными возможностями репликации. Миграция рекомендуется для production окружений. Документация доступна на официальном сайте.</p>
                     </div>
                 </div>
-            </div>
+            </article>
         </section>
-    </div>
+    </main>
 
-    <!-- Футер -->
-    <footer class="text-center">
+    <footer class="py-5 text-center text-muted mt-5" role="contentinfo" aria-label="Подвал сайта">
         <div class="container">
-            <p>&copy; 2025 Савельев Антон Алексеевич.</p>
+            <p>&copy; 2024 Портфолио Савельева Антона. Все права защищены.</p>
+            <p>Контакт: <a href="mailto:anton@example.com" title="Отправить письмо">anton@example.com</a></p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const focusableElements = document.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+
+            focusableElements.forEach((element) => {
+                element.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+
+                element.addEventListener('focus', function() {
+                    this.style.outline = '2px solid #9d4edd';
+                    this.style.outlineOffset = '2px';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
